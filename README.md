@@ -450,6 +450,103 @@ The batch analysis endpoint provides comprehensive statistical analysis across m
 - Cluster analysis to group similar speech patterns
 - Individual sample details with anomaly scores and cluster labels
 
+## Deliverables and Submission Guidelines
+
+This project fulfills the requirements for the Voice-Based Cognitive Decline Pattern Detection task. Here's how to prepare and submit the deliverables:
+
+### 1. Python Notebook/Script
+
+The project includes a Jupyter notebook that demonstrates the complete pipeline:
+
+```bash
+jupyter notebook notebooks/speech_analysis_demo.ipynb
+```
+
+To generate results for your report:
+
+1. Place 5-10 audio samples in the `data/audio/` directory
+2. Run the notebook cells sequentially
+3. Analyze the output and visualizations
+4. Save the notebook with your results and analysis
+
+### 2. Sample Visualizations
+
+Visualize feature trends using either:
+
+**A. Streamlit Dashboard:**
+```bash
+streamlit run src/dashboard.py
+```
+
+**B. FastAPI Visualization Endpoint:**
+```bash
+uvicorn src.api:app --reload
+```
+Then visit `http://localhost:8000/visualize` after analyzing files.
+
+**C. Jupyter Notebook:**
+The notebook includes visualization cells that generate:
+- Feature distribution charts
+- PCA and t-SNE visualizations for pattern detection
+- Anomaly detection results
+
+Capture these visualizations for your report.
+
+### 3. API-Ready Function for Risk Scoring
+
+The project includes a fully functional API with risk scoring capabilities:
+
+```bash
+uvicorn src.api:app --reload
+```
+
+Test the API using:
+1. Web interface at `http://localhost:8000`
+2. Direct POST requests to `/analyze/` endpoint
+3. Batch processing via `/analyze-batch/` endpoint
+
+The API returns a comprehensive analysis including:
+- Cognitive risk score (0-1 scale)
+- Anomaly detection results
+- Feature extraction metrics
+- Cluster analysis
+
+### 4. Final Report
+
+Prepare a report that includes:
+
+1. **Introduction**
+   - Project objective and problem statement
+   - Dataset description (audio samples used)
+
+2. **Methodology**
+   - Feature extraction techniques
+   - ML methods used (DBSCAN clustering, anomaly detection)
+   - Risk scoring algorithm
+
+3. **Results**
+   - Key findings from audio analysis
+   - Most insightful features (which speech patterns were most indicative)
+   - Visualization of patterns and anomalies
+   - Sample risk scores and interpretations
+
+4. **Discussion**
+   - Strengths and limitations of the approach
+   - Potential clinical applications
+   - Next steps for improvement
+
+5. **Conclusion**
+   - Summary of findings
+   - Recommendations for future work
+
+### Submission Checklist
+
+- [ ] Jupyter notebook with code and results
+- [ ] 5-10 audio samples analyzed
+- [ ] Visualizations of feature trends
+- [ ] API functionality tested and documented
+- [ ] Final report with analysis and findings
+
 ## Next Steps for Clinical Implementation
 
 1. **Data Collection**:
